@@ -6,6 +6,13 @@ tweets = map(lambda l: l.rstrip('\n'), open('../data/tweets.txt').readlines())
 
 r = re.compile(u'\s*(@\w+?)\s'.encode('utf-8'))
 for t in tweets:
-  s = r.search(t)
-  if s: print s.group(1)
+  i = 0
+  while True:
+    m = r.search(t, i)
+    if m:
+      print m.group(1)
+      i = m.end()
+    else:
+      break
+
 
