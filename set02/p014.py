@@ -4,7 +4,7 @@ import re
 
 tweets = map(lambda l: l.rstrip('\n'), open('../data/tweets.txt').readlines())
 
-r = re.compile(u'\s*(@\w+?)\s'.encode('utf-8'))
+r = re.compile(u'\s*(@\w+?)\W'.encode('utf-8'))
 for t in tweets:
   i = 0
   while True:
